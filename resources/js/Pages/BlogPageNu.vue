@@ -22,12 +22,12 @@ defineProps({
   <GuestNav>
     <div class="container py-5">
     <h1 class="text-center mb-5">📰 Latest Blog Posts</h1>
-    <input
+    <!-- <input
       v-model="search"
       type="text"
       class="form-control mb-3"
       placeholder="Search posts..."
-    />
+    /> -->
 
     <div v-if="posts.length === 0" class="text-center text-muted mb-4">
       No blog posts available.
