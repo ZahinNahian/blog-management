@@ -34,7 +34,17 @@ class BlogController extends Controller
         ->get();
         // $posts=Post::with('tags', 'UsersWhoLikedThePostMod', 'UsersThatBookmarkedThePostMod')->where('user_id','!=', $id)->where('visibility', 'public')->latest()->get();
         // dd($posts);
-        return Inertia::render('BlogPage', ['posts'=>$posts, 'authUser' => session('user_id') ? true : false]);
+        return Inertia::render('BlogPage', ['posts'=>$posts]);
+    } //End Method    
+    
+    
+    public function BlogPageNu(Request $request) {
+
+        $search = $request->input('search');
+
+        $posts=Post::with('tags')->where('visibility', 'public')->latest()->get();
+        // dd($posts);
+        return Inertia::render('BlogPageNu', ['posts'=>$posts]);
     } //End Method
 
 

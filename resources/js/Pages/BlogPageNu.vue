@@ -1,8 +1,8 @@
 <script setup>
 import { ref, watch } from 'vue'
 import { router, Link } from '@inertiajs/vue3'
-import AuthNav from "../Components/AuthNav.vue"
-// import GuestNav from "../Components/GuestNav.vue";
+// import AuthNav from "../Components/AuthNav.vue"
+import GuestNav from "../Components/GuestNav.vue";
 
 const search = ref('')
 
@@ -18,8 +18,8 @@ defineProps({
 </script>
 
 <template>
-  <AuthNav>
-  <!-- <GuestNav v-else /> -->
+
+  <GuestNav>
     <div class="container py-5">
     <h1 class="text-center mb-5">📰 Latest Blog Posts</h1>
     <input
@@ -51,15 +51,13 @@ defineProps({
               </span>
             </div>
             <div class="mt-2">
-              <Link :href="`/view-post/${post.id}`" class="me-2"><button>Read More</button></Link>
-              <Link :href="`/post/${post.id}/${post.users_who_liked_the_post_mod.length>0 ? 'unlike' : 'like'}`" class="me-2"><button>{{ post.users_who_liked_the_post_mod.length>0 ? 'Unlike': 'Like' }}</button></Link>               
-              <Link :href="`/post/${post.id}/${post.users_that_bookmarked_the_post_mod.length>0 ? 'unbookmark':'bookmark'}`" class="me-2"><button>{{ post.users_that_bookmarked_the_post_mod.length>0 ? "UnBookmark":"Bookmark" }}</button></Link>
+              <Link href="/" class="me-2"><button>Read More</button></Link>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  </AuthNav>
+  </GuestNav>
 
 </template>

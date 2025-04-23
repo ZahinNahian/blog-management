@@ -17,12 +17,16 @@ Route::post('/user-login', [UserController::class, 'UserLogin']);
 Route::get('/registration-page', [UserController::class, 'RegistrationPage']);
 Route::post('/user-registration', [UserController::class, 'UserRegistration']);
 
-Route::get('/feed-page', [BlogController::class, 'FeedPage']);
+Route::get('/post', [BlogController::class, 'BlogPageNu']);
+
+// Route::get('/feed-page', [BlogController::class, 'FeedPage']);
 
 
 // Blog related route
 
 Route::middleware(SessionAuthMiddleware::class)->group(function () {
+
+    Route::get('/feed-page', [BlogController::class, 'FeedPage']);
 
     // Post related route
     Route::get('/create-post-page', [PostController::class, 'CreatePostPage']);
